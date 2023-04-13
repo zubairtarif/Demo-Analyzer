@@ -1,1 +1,60 @@
+<!DOCTYPE html>
 
+<html>
+	<head>
+		<meta charset="UTF=8">
+		<title>Graph Viewer V0.5</title> 
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+	</head>
+
+	<body>
+		<h2>Data Analysis Board</h2>
+	    <div class="one">
+	    	<h3>Load Data</h3>
+	    	
+			<form action="/load" method="POST" enctype="multipart/form-data">
+	    		<label for="myfile">Select Data:</label>
+    			<input type="file" ID ="myfile" name="csv-file" accept=".csv"class="btn2">
+    			<input type="submit" value="Load Data" class="btn">
+			</form>
+			
+	    	<br><br>   	       	
+	    	{% include 'loadgraph.html' %}
+
+    		<br>
+	    	<form action="/detect" method="POST" enctype="multipart/form-data">
+    			<input type="submit" value="Peak Detect" class="btn">
+			</form>
+
+
+
+
+	    </div>
+	    	
+		<div class='two'>
+				<h3>Analysis 1</h3>
+				{% include 'analysis1.html' %}
+	    </div>
+
+	    <div class='three'>
+	    	<h3>Analysis 2</h3>
+
+	    </div>
+
+
+
+
+	
+	<footer>
+		<br>
+  		<p>Author: Zubair Tarif</p>
+  		<p><a href="mailto:zubair.tarif@gmail.com">zubair.tarif@gmail.com</a></p>
+	</footer>
+
+
+	</body>
+
+	
+
+</html>
